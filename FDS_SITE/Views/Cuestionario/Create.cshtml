@@ -1,0 +1,123 @@
+﻿@model FDS_SITE.Models.Quejas
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="col-lg-6 col-lg-offset-3">
+    <h2>Cuestionario de Quejas y Sugerencias:</h2>
+
+    <h4>Siempre las sugerencias nos ayudan a darles una mejor atención, gracias por llenar el cuestionario</h4>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-md-6 col-lg-offset-3">
+
+        @*@using (Html.BeginForm("create", "cuestionario", FormMethod.Post, new { id = "frm-cuestionario" }))
+        {*@
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @Html.HiddenFor(x => x.CodigoQueja)
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="control-label">Proviene</label>
+                    <select asp-for="CodigoTipo" class="form-control">
+                        <option value=1>Externo</option>
+                        <option value=2>Interno</option>
+
+                    </select>
+                    <span asp-validation-for="CodigoTipo" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="control-label">Departamento</label>
+                    <select asp-for="CodigoDepartamento" class="form-control">
+                        <option value=1>RRHH</option>
+                        <option value=2>Informatica</option>
+                        <option value=1>Contabilidad</option>
+                    </select>
+                    <span asp-validation-for="CodigoDepartamento" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="control-label">Sucursal</label>
+                    <select asp-for="CodigoSucursal" class="form-control">
+                        <option value=1>Los Paisas</option>
+                        <option value=2>Estacion</option>
+                        <option value=1>Martha 1</option>
+                        <option value=1>Martha 2</option>
+                        <option value=1>Satellite</option>
+                    </select>
+                    <span asp-validation-for="CodigoSucursal" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label class="control-label">Empleado Cometio la Falta</label>
+                    <input asp-for="Empleado" class="form-control" />
+                    <span asp-validation-for="Empleado" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label class="control-label">Sujerencia</label>
+                    <textarea rows="4" asp-for="Queja" class="form-control"></textarea>
+                    <span asp-validation-for="Queja" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="control-label">Fecha Registro</label>
+                    <input asp-for="Fecha" type="date" class="form-control" />
+                    <span asp-validation-for="Fecha" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6 hide">
+                <div class="form-group">
+                    <label asp-for="Ubicacion" class="control-label"></label>
+                    <input asp-for="Ubicacion" class="form-control" />
+                    <span asp-validation-for="Ubicacion" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="col-lg-8 row">
+                    <div class="form-group">
+                        <label asp-for="Imagen" class="control-label"></label>
+                        <input asp-for="Imagen" class="form-control row" />
+                        <span asp-validation-for="Imagen" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 row">
+                    <input type="button" style="margin-top:1.7em" value="Subir" class="btn btn-success row" />
+                </div>
+            </div>
+            <div class="col-lg-12 text-center" style="margin-top:3em">
+                <div class="form-group ">
+                    <input type="submit" value="Enviar" class="btn btn-primary col-lg-12 btn-lg" />
+                </div>
+            </div>
+        </form>
+        @*}*@
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+    }
+}
+

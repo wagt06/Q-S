@@ -1,0 +1,120 @@
+﻿@model IEnumerable<FDS_SITE.Models.Quejas>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+<p>
+    @*<a asp-action="Create" class="btn btn-default">Create New</a>*@
+</p>
+<div class="col-lg-6">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                <h4 class="mb-3">Quejas por Dto </h4>
+                <canvas id="barChart" width="1112" height="556" style="display: block; width: 556px;"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body panel-heading">
+                <iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                <h4 class="mb-3">Quejas vs Sugerencias  </h4>
+                <canvas id="sales-chart" height="556" width="1112" style="display: block; width: 556px; height: 800px;"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body panel-heading">
+                <iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                <h4 class="mb-3">Quejas </h4>
+                <canvas id="team-chart" height="556" width="1112" style="display: block; width: 556px; height: 800px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-6">
+    <h2 class="panel-heading">Quejas y Sugerencias Mes</h2>
+    <div class="panel panel-default">
+        <div class="panel-body ">
+            <table class="table table-striped table-condensed ">
+                <thead>
+                    <tr>
+                        @*<th>s
+                               Tipo
+                            </th>*@
+                        <th>
+                            Departamento
+                        </th>
+                        @*<th>
+                               Sucursal
+                            </th>*@
+                        @*<th>
+                               Empleado
+                            </th>*@
+                        <th width="40%">
+                            Queja o Sugerencia
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                        @*<th>
+                              Ubicacion
+                            </th>
+                            <th>
+                              Imagen
+                            </th>*@
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.CodigoTipo)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CodigoDepartamento)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.CodigoSucursal)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Empleado)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Queja)
+                            </td>
+                            <td>
+                                @item.Fecha.ToShortDateString()
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Imagen)
+                                </td>*@
+                            <td>
+                                @*<a asp-action="Edit" asp-route-id="@item.CodigoQueja">Edit</a> |*@
+                                <a asp-action="Details" asp-route-id="@item.CodigoQueja">Details</a>
+                                @*<a asp-action="Delete" asp-route-id="@item.CodigoQueja">Delete</a>*@
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+        @section scripts {
+            <script src="~/js/lib/chart-js/Chart.bundle.js"></script>
+            <script src="~/js/lib/chart-js/chartjs-init.js"></script>
+        }
+
+
